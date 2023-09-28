@@ -3,11 +3,15 @@
   "description": "This incident type refers to a situation where the SSL certificate probe failed for a particular instance, which means that the SSL certificate for that instance could not be verified or was found to be invalid. This could be a potential security risk and needs to be investigated and resolved promptly.",
   "params": [
     {
+      "name": "PATH_TO_NEW_SSL_CERTIFICATE_PRIVATE_KEY_FILE",
+      "value": ""
+    },
+    {
       "name": "INSTANCE_NAME_OR_IP_ADDRESS",
       "value": ""
     },
     {
-      "name": "OLD_CERTIFICATE_FILE",
+      "name": "PATH_TO_NEW_SSL_CERTIFICATE_FILE",
       "value": ""
     },
     {
@@ -19,15 +23,11 @@
       "value": ""
     },
     {
-      "name": "PATH_TO_NEW_SSL_CERTIFICATE_PRIVATE_KEY_FILE",
+      "name": "OLD_CERTIFICATE_FILE",
       "value": ""
     },
     {
       "name": "INSTANCE",
-      "value": ""
-    },
-    {
-      "name": "PATH_TO_NEW_SSL_CERTIFICATE_FILE",
       "value": ""
     },
     {
@@ -144,7 +144,7 @@
       "name": "cell_17",
       "type": "OP_LANG",
       "enabled": true,
-      "content": "host | host_name=$HOST_NAME | invoke_ssl_cert_replace($INSTANCE_NAME_OR_IP_ADDRESS, $OLD_CERTIFICATE_FILE, $SERVICE_OR_APPLICATION_NAME, $OLD_CERTIFICATE_KEY_FILE, $PATH_TO_NEW_SSL_CERTIFICATE_PRIVATE_KEY_FILE, $PATH_TO_NEW_SSL_CERTIFICATE_FILE)"
+      "content": "host | host_name=$HOST_NAME | invoke_update_ssl_certificate($PATH_TO_NEW_SSL_CERTIFICATE_PRIVATE_KEY_FILE, $INSTANCE_NAME_OR_IP_ADDRESS, $PATH_TO_NEW_SSL_CERTIFICATE_FILE, $SERVICE_OR_APPLICATION_NAME, $OLD_CERTIFICATE_KEY_FILE, $OLD_CERTIFICATE_FILE)"
     }
   ]
 }
